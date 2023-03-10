@@ -1,11 +1,13 @@
-import Currency from './3-currency.js';
+// eslint-disable-next-line
+import Currency from "./3-currency";
 
-class Pricing {
+export default class Pricing {
   constructor(amount, currency) {
-    this._amount = amount;
-    this._currency = currency;
+    this.amount = amount;
+    this.currency = currency;
   }
 
+  // amount
   get amount() {
     return this._amount;
   }
@@ -14,6 +16,7 @@ class Pricing {
     this._amount = value;
   }
 
+  // currency
   get currency() {
     return this._currency;
   }
@@ -23,12 +26,10 @@ class Pricing {
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this._currency.name} (${this._currency.code})`;
+    return `${this.amount} ${this.currency.displayFullCurrency()}`;
   }
 
   static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
   }
 }
-
-export default Pricing;
